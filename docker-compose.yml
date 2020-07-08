@@ -1,0 +1,40 @@
+version: '3.4'
+
+services:
+  apigateway:
+    image: ${DOCKER_REGISTRY-}apigateway
+    hostname: apigateway
+    container_name: apigateway
+    build:
+      context: .
+      dockerfile: APIGateway/Dockerfile
+    ports:
+        - "8001:80"
+    environment:
+        - ASPNETCORE_ENVIRONMENT=Development
+    depends_on:
+            - montyhallapi
+
+  montyhallapi:
+    image: ${DOCKER_REGISTRY-}montyhallapi
+    hostname: montyhallapi
+    container_name: montyhallapi
+    build:
+      context: .
+      dockerfile: MontyHallAPI/Dockerfile
+    ports:
+        - "8002:80"
+    environment:
+       - ASPNETCORE_ENVIRONMENT=Development
+
+  authserver:
+    image: ${DOCKER_REGISTRY-}montyhallapi
+    hostname: authserver
+    container_name: authserver
+    build:
+      context: .
+      dockerfile: AuthServer/Dockerfile
+    ports:
+        - "8003:80"
+    environment:
+       - ASPNETCORE_ENVIRONMENT=Development
