@@ -20,12 +20,12 @@ namespace AuthServer.Controllers
     {
         private readonly IOptions<Audience> settings;
 
-        private readonly ILogger<TokenController> Logger;
+        private readonly ILogger<TokenController> logger;
 
         public TokenController(IOptions<Audience> settings, ILogger<TokenController> logger)
         {
             this.settings = settings;
-            Logger = logger;
+            this.logger = logger;
         }
 
         [HttpGet]
@@ -63,7 +63,7 @@ namespace AuthServer.Controllers
 
                 };
 
-                TimeSpan expiryTime = TimeSpan.FromMinutes(2);
+                TimeSpan expiryTime = TimeSpan.FromMinutes(15);
                 var jwt = new JwtSecurityToken(
                     issuer: settings.Value.Iss,
                     audience: settings.Value.Aud,
@@ -79,11 +79,11 @@ namespace AuthServer.Controllers
                     expires_in = (int)expiryTime.TotalSeconds
                 };
 
-                Logger.LogDebug("Token generated for user " + personalId + encodedJwt);
+                logger.LogDebug("Token generated for user " + personalId + encodedJwt);
                 return Json(responseJson);
             } catch (Exception e)
             {
-                Logger.LogError(e.Message,e);
+                logger.LogError(e.Message,e);
                 return Unauthorized();
             }
 

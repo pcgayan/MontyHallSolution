@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MontyHallAPI.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -7,12 +8,18 @@ namespace MontyHallAPI.Repositories
 {
     public interface IMontyHallGameRepository
     {
-        int loginPlayer(int personalId);
 
-        bool selectFirstDoor(int personalId, int doorId);
+        bool firstDorrSelection(Player player, int doorId);
 
-        int switchDoor(int personalId, int doorId);
+        bool switchDoorSelection(Player player, int doorId);
 
-        bool declareWinner(int personalId);
+        bool declareWinner(Player player);
+
+        int getOngoingSessionStage(Player player);
+
+        MontyHallGameSession getOngoingSession(Player player);
+
+        int getHostDoorSelection(Player player);
+        MontyHallGameSession getOngoingSession(string playerId);
     }
 }

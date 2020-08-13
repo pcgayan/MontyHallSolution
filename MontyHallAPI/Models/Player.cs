@@ -16,5 +16,15 @@ namespace MontyHallAPI.Models
             this.PersonalId = personalId;
         }
 
+        public override bool Equals(object obj)
+        {
+            return obj is Player player &&
+                   PersonalId.Equals(player.PersonalId);
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(switchSelectedDoor);
+        }
     }
 }

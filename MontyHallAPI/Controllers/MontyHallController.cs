@@ -19,33 +19,32 @@ namespace MontyHallAPI.Controllers
     [ApiController]
     public class MontyHallController : Controller
     {
+        private const string PERSONAL_ID = "personalId";
         private readonly IMontyHallGameRepository montyHallGameRepository;
 
-        private readonly ILogger<MontyHallController> Logger;
+        private readonly ILogger<MontyHallController> logger;
 
-        public MontyHallController (IMontyHallGameRepository montyHallGameRepository, ILogger<MontyHallController> logger)
+        public MontyHallController(IMontyHallGameRepository montyHallGameRepository, ILogger<MontyHallController> logger)
         {
             this.montyHallGameRepository = montyHallGameRepository;
-            Logger = logger;
+            this.logger = logger;
         }
 
-        // GET api/montyHall
-        [HttpGet]
+        [HttpGet("GameStart")]
         [Authorize]
         //[ProducesResponseType((int)System.Net.HttpStatusCode.BadRequest)]
         //[ProducesResponseType((int)System.Net.HttpStatusCode.NotFound)]
         //[ProducesResponseType(typeof(CatalogItem), (int)HttpStatusCode.OK)]
-        public ActionResult<IEnumerable<string>> Get()
+        public ActionResult<IEnumerable<string>> GameStart()
         {
-            var currentUser = HttpContext.User;
+            System.Text.StringBuilder result = new System.Text.StringBuilder();
+            Claim claim = HttpContext.User.Claims.FirstOrDefault(c => c.Type == PERSONAL_ID);
 
-            Claim claim = currentUser.Claims.FirstOrDefault(c => c.Type == "personalId");
             if (claim != null)
             {
-                Player player = new Player(claim.Value);
-                MontyHallGameSession montyHallGameSession = new MontyHallGameSession(player);
 
-                System.Text.StringBuilder result = new System.Text.StringBuilder();
+                MontyHallGameSession montyHallGameSession = montyHallGameRepository.getOngoingSession(claim.Value);
+                Player player = montyHallGameSession.player;
                 result.Append(String.Format("Player {0} with ", player.PersonalId));
 
                 foreach (Door door in montyHallGameSession.doorList)
@@ -53,37 +52,161 @@ namespace MontyHallAPI.Controllers
                     result.Append(door.ToString());
                     result.Append(", ");
                 }
-                return new string[] { result.ToString() };
-            } else
+
+                int stage = montyHallGameRepository.getOngoingSessionStage(player);
+                if (stage == 0 || stage == 1)
+                {
+                    result.Append(String.Format("Player {0}, Please select your winning door..", player.PersonalId));
+                }
+                else
+                {
+                    logger.LogDebug(String.Format("Player {0}, Player is on stage {1}", player.PersonalId, stage));
+                }
+            }
+            else
             {
-                Logger.LogDebug("Token did not contain personalId");
+                logger.LogDebug("Token did not contain personalId");
                 return Unauthorized();
             }
+
+            return new string[] { result.ToString() };
         }
 
-        // GET api/montyHall/5
-        [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        [HttpGet("FirstDoorSelection/{firstDoorSelection}")]
+        [Authorize]
+        public ActionResult<string> SelectFirstDoor(int firstDoorSelection)
         {
-            return "value";
+            System.Text.StringBuilder result = new System.Text.StringBuilder();
+            Claim claim = HttpContext.User.Claims.FirstOrDefault(c => c.Type == PERSONAL_ID);
+
+            if (claim != null)
+            {
+                if (firstDoorSelection < 1 || firstDoorSelection > 3)
+                {
+                    logger.LogDebug("First Door Selection must be 1 to 3 only.");
+                    return BadRequest();
+                }
+
+                Player player = montyHallGameRepository.getOngoingSession(claim.Value).player;
+                int stage = montyHallGameRepository.getOngoingSessionStage(player);
+                if (stage == 1)
+                {
+                    bool sucess = montyHallGameRepository.firstDorrSelection(player, firstDoorSelection);
+                    result.Append(String.Format("Player {0}, Selection of door number {1} was {2}", player.PersonalId, firstDoorSelection, sucess == true ? "Sucessed" : "Failed"));
+                    return result.ToString();
+                }
+                else
+                {
+                    logger.LogDebug(String.Format("Player {0}, Player is on stage {1} can not not allowed to perfrom this action", player.PersonalId, stage));
+                    return BadRequest();
+                }
+            }
+            else
+            {
+                logger.LogDebug("Token did not contain personalId");
+                return Unauthorized();
+            }
+
         }
 
-        // POST api/montyHall
-        [HttpPost]
-        public void Post([FromBody] string value)
+        [HttpGet("HostDoorSelection")]
+        [Authorize]
+        public ActionResult<string> HostDoorSelection()
         {
+            System.Text.StringBuilder result = new System.Text.StringBuilder();
+            Claim claim = HttpContext.User.Claims.FirstOrDefault(c => c.Type == PERSONAL_ID);
+
+            if (claim != null)
+            {
+                Player player = montyHallGameRepository.getOngoingSession(claim.Value).player;
+                int stage = montyHallGameRepository.getOngoingSessionStage(player);
+                if (stage == 2)
+                {
+                    int hostSelectionDoor = montyHallGameRepository.getHostDoorSelection(player);
+                    result.Append(String.Format("Player {0}, Host door select was {1}.", player.PersonalId, hostSelectionDoor));
+                    return result.ToString();
+                }
+                else
+                {
+                    logger.LogDebug(String.Format("Player {0}, Player is on stage {1} can not not allowed to perfrom this action", player.PersonalId, stage));
+                    return BadRequest();
+                }
+            }
+            else
+            {
+                logger.LogDebug("Token did not contain personalId");
+                return Unauthorized();
+            }
+
         }
 
-        // PUT api/montyHall/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpGet("SwitchDoorSelection/{switchDoorSelection}")]
+        [Authorize]
+        public ActionResult<string> SwitchDoorSelection(int switchDoorSelection)
         {
+            System.Text.StringBuilder result = new System.Text.StringBuilder();
+            Claim claim = HttpContext.User.Claims.FirstOrDefault(c => c.Type == PERSONAL_ID);
+
+            if (claim != null)
+            {
+                if (switchDoorSelection < 1 || switchDoorSelection > 3)
+                {
+                    logger.LogDebug("Switch Door Selection must be 1 to 3 only.");
+                    return BadRequest();
+                }
+
+                Player player = montyHallGameRepository.getOngoingSession(claim.Value).player;
+                int stage = montyHallGameRepository.getOngoingSessionStage(player);
+                if (stage == 3)
+                {
+                    bool sucess = montyHallGameRepository.switchDoorSelection(player, switchDoorSelection);
+                    result.Append(String.Format("Player {0}, Switching of door number {1} was {2}", player.PersonalId, switchDoorSelection, sucess == true ? "Sucessed" : "Failed"));
+                    return result.ToString();
+                }
+                else
+                {
+                    logger.LogDebug(String.Format("Player {0}, Player is on stage {1} can not not allowed to perfrom this action", player.PersonalId, stage));
+                    return BadRequest();
+                }
+            }
+            else
+            {
+                logger.LogDebug("Token did not contain personalId");
+                return Unauthorized();
+            }
+
         }
 
-        // DELETE api/montyHall/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        [HttpGet("WinnerStatus")]
+        [Authorize]
+        public ActionResult<string> WinnerStatus()
         {
+            System.Text.StringBuilder result = new System.Text.StringBuilder();
+            Claim claim = HttpContext.User.Claims.FirstOrDefault(c => c.Type == PERSONAL_ID);
+
+            if (claim != null)
+            {
+                Player player = montyHallGameRepository.getOngoingSession(claim.Value).player;
+                int stage = montyHallGameRepository.getOngoingSessionStage(player);
+                if (stage == 4)
+                {
+                    bool sucess = montyHallGameRepository.declareWinner(player);
+                    result.Append(String.Format("Player {0}, you {1} !", player.PersonalId, sucess == true ? "Won" : "Lost"));
+                    return result.ToString();
+                }
+                else
+                {
+                    logger.LogDebug(String.Format("Player {0}, Player is on stage {1} can not not allowed to perfrom this action", player.PersonalId, stage));
+                    return BadRequest();
+                }
+            }
+            else
+            {
+                logger.LogDebug("Token did not contain personalId");
+                return Unauthorized();
+            }
+
         }
+
     }
 }

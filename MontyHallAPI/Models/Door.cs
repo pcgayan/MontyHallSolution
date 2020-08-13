@@ -9,6 +9,7 @@ namespace MontyHallAPI.Models
     {
         public readonly int id;
         public readonly bool winning;
+        public bool hostSelected;
 
         public Door(int id, bool winning)
         {
