@@ -1,0 +1,246 @@
+{
+	"id": "dc1c5f8b-f3c1-9984-69be-5a6c18110103",
+	"name": "MontyHallAPIs",
+	"description": "",
+	"order": [
+		"30f5004b-05bc-2293-b3e1-e4d538998a1b",
+		"0e331b69-b930-f590-b428-23e43d5205dd",
+		"2f123f4a-57b6-db4d-80b5-82cfdacad658",
+		"a51d945b-4ee7-cea1-b733-eb227c08dfdf",
+		"7f57dedc-b4c9-6a99-319b-ae59fca9a6c6",
+		"c9ea17c1-b827-f21f-7814-ef4362eb4aed",
+		"30a83497-a5d7-4cb5-00bd-5133987d8060",
+		"5878ef7b-d54f-0c9d-d5fe-82468f94b524"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1593002539032,
+	"owner": "283630",
+	"public": false,
+	"requests": [
+		{
+			"id": "0e331b69-b930-f590-b428-23e43d5205dd",
+			"headers": "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxOTgwMDUwNjQ3NzIiLCJqdGkiOiIxNzA2YWY5YS1lMDRiLTRjMGMtYWEwOC1mZmEwMWE5MWQzMDQiLCJpYXQiOiIwOC8xMy8yMDIwIDE3OjU3OjQ3IiwicGVyc29uYWxJZCI6IjE5ODAwNTA2NDc3MiIsIm5iZiI6MTU5NzM0MTQ2NywiZXhwIjoxNTk3MzQyMzY3LCJpc3MiOiJodHRwOi8vd3d3Lmdvb2dsZS5jb20iLCJhdWQiOiJQdWJsaWMifQ.NsGH4i6_-75zR12bDYytwlyen19gb_IksalqY3QUjP8\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxOTgwMDUwNjQ3NzIiLCJqdGkiOiIxNzA2YWY5YS1lMDRiLTRjMGMtYWEwOC1mZmEwMWE5MWQzMDQiLCJpYXQiOiIwOC8xMy8yMDIwIDE3OjU3OjQ3IiwicGVyc29uYWxJZCI6IjE5ODAwNTA2NDc3MiIsIm5iZiI6MTU5NzM0MTQ2NywiZXhwIjoxNTk3MzQyMzY3LCJpc3MiOiJodHRwOi8vd3d3Lmdvb2dsZS5jb20iLCJhdWQiOiJQdWJsaWMifQ.NsGH4i6_-75zR12bDYytwlyen19gb_IksalqY3QUjP8",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8002/api/montyhall/GameStart",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1597355073532,
+			"name": "GameStart",
+			"description": "",
+			"collectionId": "dc1c5f8b-f3c1-9984-69be-5a6c18110103",
+			"responses": []
+		},
+		{
+			"id": "2f123f4a-57b6-db4d-80b5-82cfdacad658",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:8001/mocky/5185415ba171ea3a00704eed",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "dc1c5f8b-f3c1-9984-69be-5a6c18110103",
+			"data": null,
+			"dataMode": "params",
+			"name": "http://localhost:8001/mocky/5185415ba171ea3a00704eed",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1597341641140,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "30a83497-a5d7-4cb5-00bd-5133987d8060",
+			"headers": "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxOTgwMDUwNjQ3NzIiLCJqdGkiOiIxNzA2YWY5YS1lMDRiLTRjMGMtYWEwOC1mZmEwMWE5MWQzMDQiLCJpYXQiOiIwOC8xMy8yMDIwIDE3OjU3OjQ3IiwicGVyc29uYWxJZCI6IjE5ODAwNTA2NDc3MiIsIm5iZiI6MTU5NzM0MTQ2NywiZXhwIjoxNTk3MzQyMzY3LCJpc3MiOiJodHRwOi8vd3d3Lmdvb2dsZS5jb20iLCJhdWQiOiJQdWJsaWMifQ.NsGH4i6_-75zR12bDYytwlyen19gb_IksalqY3QUjP8\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxOTgwMDUwNjQ3NzIiLCJqdGkiOiIxNzA2YWY5YS1lMDRiLTRjMGMtYWEwOC1mZmEwMWE5MWQzMDQiLCJpYXQiOiIwOC8xMy8yMDIwIDE3OjU3OjQ3IiwicGVyc29uYWxJZCI6IjE5ODAwNTA2NDc3MiIsIm5iZiI6MTU5NzM0MTQ2NywiZXhwIjoxNTk3MzQyMzY3LCJpc3MiOiJodHRwOi8vd3d3Lmdvb2dsZS5jb20iLCJhdWQiOiJQdWJsaWMifQ.NsGH4i6_-75zR12bDYytwlyen19gb_IksalqY3QUjP8",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8002/api/montyhall/SwitchDoorSelection/3",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1597355126044,
+			"name": "SwitchDoorSelection",
+			"description": "",
+			"collectionId": "dc1c5f8b-f3c1-9984-69be-5a6c18110103",
+			"responses": []
+		},
+		{
+			"id": "30f5004b-05bc-2293-b3e1-e4d538998a1b",
+			"headers": "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxOTgwMDUwNjQ3NzIiLCJqdGkiOiIxNzA2YWY5YS1lMDRiLTRjMGMtYWEwOC1mZmEwMWE5MWQzMDQiLCJpYXQiOiIwOC8xMy8yMDIwIDE3OjU3OjQ3IiwicGVyc29uYWxJZCI6IjE5ODAwNTA2NDc3MiIsIm5iZiI6MTU5NzM0MTQ2NywiZXhwIjoxNTk3MzQyMzY3LCJpc3MiOiJodHRwOi8vd3d3Lmdvb2dsZS5jb20iLCJhdWQiOiJQdWJsaWMifQ.NsGH4i6_-75zR12bDYytwlyen19gb_IksalqY3QUjP8\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxOTgwMDUwNjQ3NzIiLCJqdGkiOiIxNzA2YWY5YS1lMDRiLTRjMGMtYWEwOC1mZmEwMWE5MWQzMDQiLCJpYXQiOiIwOC8xMy8yMDIwIDE3OjU3OjQ3IiwicGVyc29uYWxJZCI6IjE5ODAwNTA2NDc3MiIsIm5iZiI6MTU5NzM0MTQ2NywiZXhwIjoxNTk3MzQyMzY3LCJpc3MiOiJodHRwOi8vd3d3Lmdvb2dsZS5jb20iLCJhdWQiOiJQdWJsaWMifQ.NsGH4i6_-75zR12bDYytwlyen19gb_IksalqY3QUjP8",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8002/api/montyhall/SwitchDoorSelection/3",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1597355109693,
+			"name": "simpleWeather",
+			"description": "",
+			"collectionId": "dc1c5f8b-f3c1-9984-69be-5a6c18110103",
+			"responses": []
+		},
+		{
+			"id": "5878ef7b-d54f-0c9d-d5fe-82468f94b524",
+			"headers": "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxOTgwMDUwNjQ3NzIiLCJqdGkiOiIxNzA2YWY5YS1lMDRiLTRjMGMtYWEwOC1mZmEwMWE5MWQzMDQiLCJpYXQiOiIwOC8xMy8yMDIwIDE3OjU3OjQ3IiwicGVyc29uYWxJZCI6IjE5ODAwNTA2NDc3MiIsIm5iZiI6MTU5NzM0MTQ2NywiZXhwIjoxNTk3MzQyMzY3LCJpc3MiOiJodHRwOi8vd3d3Lmdvb2dsZS5jb20iLCJhdWQiOiJQdWJsaWMifQ.NsGH4i6_-75zR12bDYytwlyen19gb_IksalqY3QUjP8\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxOTgwMDUwNjQ3NzIiLCJqdGkiOiIxNzA2YWY5YS1lMDRiLTRjMGMtYWEwOC1mZmEwMWE5MWQzMDQiLCJpYXQiOiIwOC8xMy8yMDIwIDE3OjU3OjQ3IiwicGVyc29uYWxJZCI6IjE5ODAwNTA2NDc3MiIsIm5iZiI6MTU5NzM0MTQ2NywiZXhwIjoxNTk3MzQyMzY3LCJpc3MiOiJodHRwOi8vd3d3Lmdvb2dsZS5jb20iLCJhdWQiOiJQdWJsaWMifQ.NsGH4i6_-75zR12bDYytwlyen19gb_IksalqY3QUjP8",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8002/api/montyhall/WinnerStatus",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "dc1c5f8b-f3c1-9984-69be-5a6c18110103",
+			"data": null,
+			"dataMode": "params",
+			"name": "WinnerStatus",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1597355137634,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "7f57dedc-b4c9-6a99-319b-ae59fca9a6c6",
+			"headers": "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxOTgwMDUwNjQ3NzIiLCJqdGkiOiIxNzA2YWY5YS1lMDRiLTRjMGMtYWEwOC1mZmEwMWE5MWQzMDQiLCJpYXQiOiIwOC8xMy8yMDIwIDE3OjU3OjQ3IiwicGVyc29uYWxJZCI6IjE5ODAwNTA2NDc3MiIsIm5iZiI6MTU5NzM0MTQ2NywiZXhwIjoxNTk3MzQyMzY3LCJpc3MiOiJodHRwOi8vd3d3Lmdvb2dsZS5jb20iLCJhdWQiOiJQdWJsaWMifQ.NsGH4i6_-75zR12bDYytwlyen19gb_IksalqY3QUjP8\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxOTgwMDUwNjQ3NzIiLCJqdGkiOiIxNzA2YWY5YS1lMDRiLTRjMGMtYWEwOC1mZmEwMWE5MWQzMDQiLCJpYXQiOiIwOC8xMy8yMDIwIDE3OjU3OjQ3IiwicGVyc29uYWxJZCI6IjE5ODAwNTA2NDc3MiIsIm5iZiI6MTU5NzM0MTQ2NywiZXhwIjoxNTk3MzQyMzY3LCJpc3MiOiJodHRwOi8vd3d3Lmdvb2dsZS5jb20iLCJhdWQiOiJQdWJsaWMifQ.NsGH4i6_-75zR12bDYytwlyen19gb_IksalqY3QUjP8",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8002/api/montyhall/FirstDoorSelection/3",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1597355091652,
+			"name": "FirstDoorSelection",
+			"description": "",
+			"collectionId": "dc1c5f8b-f3c1-9984-69be-5a6c18110103",
+			"responses": []
+		},
+		{
+			"id": "a51d945b-4ee7-cea1-b733-eb227c08dfdf",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:8003/api/token?personalId=198005064772",
+			"queryParams": [
+				{
+					"key": "personalId",
+					"value": "198005064772",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1597355060520,
+			"name": "get token",
+			"description": "",
+			"collectionId": "dc1c5f8b-f3c1-9984-69be-5a6c18110103",
+			"responses": []
+		},
+		{
+			"id": "c9ea17c1-b827-f21f-7814-ef4362eb4aed",
+			"headers": "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxOTgwMDUwNjQ3NzIiLCJqdGkiOiIxNzA2YWY5YS1lMDRiLTRjMGMtYWEwOC1mZmEwMWE5MWQzMDQiLCJpYXQiOiIwOC8xMy8yMDIwIDE3OjU3OjQ3IiwicGVyc29uYWxJZCI6IjE5ODAwNTA2NDc3MiIsIm5iZiI6MTU5NzM0MTQ2NywiZXhwIjoxNTk3MzQyMzY3LCJpc3MiOiJodHRwOi8vd3d3Lmdvb2dsZS5jb20iLCJhdWQiOiJQdWJsaWMifQ.NsGH4i6_-75zR12bDYytwlyen19gb_IksalqY3QUjP8\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxOTgwMDUwNjQ3NzIiLCJqdGkiOiIxNzA2YWY5YS1lMDRiLTRjMGMtYWEwOC1mZmEwMWE5MWQzMDQiLCJpYXQiOiIwOC8xMy8yMDIwIDE3OjU3OjQ3IiwicGVyc29uYWxJZCI6IjE5ODAwNTA2NDc3MiIsIm5iZiI6MTU5NzM0MTQ2NywiZXhwIjoxNTk3MzQyMzY3LCJpc3MiOiJodHRwOi8vd3d3Lmdvb2dsZS5jb20iLCJhdWQiOiJQdWJsaWMifQ.NsGH4i6_-75zR12bDYytwlyen19gb_IksalqY3QUjP8",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8002/api/montyhall/HostDoorSelection",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1597355104538,
+			"name": "HostDoorSelection",
+			"description": "",
+			"collectionId": "dc1c5f8b-f3c1-9984-69be-5a6c18110103",
+			"responses": []
+		}
+	]
+}
