@@ -47,7 +47,7 @@ namespace APIGateway
             };
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-                .AddJwtBearer("TestKey", options =>
+                .AddJwtBearer("IdentityApiKey", options =>
                 {
                     options.IncludeErrorDetails = true;
                     options.TokenValidationParameters = tokenValidationParameters;

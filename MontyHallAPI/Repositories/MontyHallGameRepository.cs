@@ -10,7 +10,8 @@ namespace MontyHallAPI.Repositories
 {
     public class MontyHallGameRepository : IMontyHallGameRepository
     {
-
+        // In a distrubuted cluster environment such as in multi spning off same instance of docker instance
+        // this cache must be in distributed cache or in DB instance
         private List<MontyHallGameSession> montyHallGameSessions;
 
         public MontyHallGameRepository()

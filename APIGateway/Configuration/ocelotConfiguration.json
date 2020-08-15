@@ -1,7 +1,7 @@
 {
   "Routes": [
     {
-      "DownstreamPathTemplate": "/api/montyhall",
+      "DownstreamPathTemplate": "/api/montyhall/{everything}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
@@ -9,10 +9,10 @@
           "Port": 80
         }
       ],
-      "UpstreamPathTemplate": "/api/montyhall",
-      "UpstreamHttpMethod": [ "GET", "PUT" ],
+      "UpstreamPathTemplate": "/api/montyhall/{everything}",
+      "UpstreamHttpMethod": [ "POST", "PUT", "GET" ],
       "AuthenticationOptions": {
-        "AuthenticationProviderKey": "TestKey",
+        "AuthenticationProviderKey": "IdentityApiKey",
         "AllowedScopes": []
       }
 

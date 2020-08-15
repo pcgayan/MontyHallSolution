@@ -21,6 +21,11 @@ https://www.c-sharpcorner.com/article/jwt-json-web-token-authentication-in-asp-n
 
 https://medium.com/swlh/building-net-core-api-gateway-with-ocelot-6302c2b3ffc5
 
+https://docs.microsoft.com/en-us/visualstudio/containers/container-tools-react?view=vs-2019
+
+https://www.codeproject.com/Articles/3132485/CRUD-Operation-using-ASP-NET-CORE-2-2-and-React-Re
+
+https://redux.js.org/introduction/getting-started
 
 services.AddAuthentication(options =>
 {

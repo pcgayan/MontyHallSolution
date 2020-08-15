@@ -20,16 +20,16 @@
 	"requests": [
 		{
 			"id": "0e331b69-b930-f590-b428-23e43d5205dd",
-			"headers": "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxOTgwMDUwNjQ3NzIiLCJqdGkiOiIxNzA2YWY5YS1lMDRiLTRjMGMtYWEwOC1mZmEwMWE5MWQzMDQiLCJpYXQiOiIwOC8xMy8yMDIwIDE3OjU3OjQ3IiwicGVyc29uYWxJZCI6IjE5ODAwNTA2NDc3MiIsIm5iZiI6MTU5NzM0MTQ2NywiZXhwIjoxNTk3MzQyMzY3LCJpc3MiOiJodHRwOi8vd3d3Lmdvb2dsZS5jb20iLCJhdWQiOiJQdWJsaWMifQ.NsGH4i6_-75zR12bDYytwlyen19gb_IksalqY3QUjP8\n",
+			"headers": "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxOTgwMDUwNjQ3NzIiLCJqdGkiOiJkN2VkNTMwNi1jOTA5LTRjYzItYWI5OS04YjJkZDI1MjQ3YTUiLCJpYXQiOiIwOC8xNS8yMDIwIDEzOjI3OjU1IiwicGVyc29uYWxJZCI6IjE5ODAwNTA2NDc3MiIsIm5iZiI6MTU5NzQ5ODA3NSwiZXhwIjoxNTk3NDk4OTc1LCJpc3MiOiJodHRwOi8vd3d3Lmdvb2dsZS5jb20iLCJhdWQiOiJQdWJsaWMifQ._7K6nJfZkhWrzCj5sEw_hl8TmOLqPDo8VpPsDndAzCk\n",
 			"headerData": [
 				{
 					"key": "Authorization",
-					"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxOTgwMDUwNjQ3NzIiLCJqdGkiOiIxNzA2YWY5YS1lMDRiLTRjMGMtYWEwOC1mZmEwMWE5MWQzMDQiLCJpYXQiOiIwOC8xMy8yMDIwIDE3OjU3OjQ3IiwicGVyc29uYWxJZCI6IjE5ODAwNTA2NDc3MiIsIm5iZiI6MTU5NzM0MTQ2NywiZXhwIjoxNTk3MzQyMzY3LCJpc3MiOiJodHRwOi8vd3d3Lmdvb2dsZS5jb20iLCJhdWQiOiJQdWJsaWMifQ.NsGH4i6_-75zR12bDYytwlyen19gb_IksalqY3QUjP8",
+					"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxOTgwMDUwNjQ3NzIiLCJqdGkiOiJkN2VkNTMwNi1jOTA5LTRjYzItYWI5OS04YjJkZDI1MjQ3YTUiLCJpYXQiOiIwOC8xNS8yMDIwIDEzOjI3OjU1IiwicGVyc29uYWxJZCI6IjE5ODAwNTA2NDc3MiIsIm5iZiI6MTU5NzQ5ODA3NSwiZXhwIjoxNTk3NDk4OTc1LCJpc3MiOiJodHRwOi8vd3d3Lmdvb2dsZS5jb20iLCJhdWQiOiJQdWJsaWMifQ._7K6nJfZkhWrzCj5sEw_hl8TmOLqPDo8VpPsDndAzCk",
 					"description": "",
 					"enabled": true
 				}
 			],
-			"url": "http://localhost:8002/api/montyhall/GameStart",
+			"url": "http://localhost:8001/api/montyhall/GameStart",
 			"queryParams": [],
 			"preRequestScript": null,
 			"pathVariables": {},
@@ -40,7 +40,7 @@
 			"tests": null,
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1597355073532,
+			"time": 1597498141458,
 			"name": "GameStart",
 			"description": "",
 			"collectionId": "dc1c5f8b-f3c1-9984-69be-5a6c18110103",
@@ -71,16 +71,16 @@
 		},
 		{
 			"id": "30a83497-a5d7-4cb5-00bd-5133987d8060",
-			"headers": "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxOTgwMDUwNjQ3NzIiLCJqdGkiOiIxNzA2YWY5YS1lMDRiLTRjMGMtYWEwOC1mZmEwMWE5MWQzMDQiLCJpYXQiOiIwOC8xMy8yMDIwIDE3OjU3OjQ3IiwicGVyc29uYWxJZCI6IjE5ODAwNTA2NDc3MiIsIm5iZiI6MTU5NzM0MTQ2NywiZXhwIjoxNTk3MzQyMzY3LCJpc3MiOiJodHRwOi8vd3d3Lmdvb2dsZS5jb20iLCJhdWQiOiJQdWJsaWMifQ.NsGH4i6_-75zR12bDYytwlyen19gb_IksalqY3QUjP8\n",
+			"headers": "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxOTgwMDUwNjQ3NzIiLCJqdGkiOiJkN2VkNTMwNi1jOTA5LTRjYzItYWI5OS04YjJkZDI1MjQ3YTUiLCJpYXQiOiIwOC8xNS8yMDIwIDEzOjI3OjU1IiwicGVyc29uYWxJZCI6IjE5ODAwNTA2NDc3MiIsIm5iZiI6MTU5NzQ5ODA3NSwiZXhwIjoxNTk3NDk4OTc1LCJpc3MiOiJodHRwOi8vd3d3Lmdvb2dsZS5jb20iLCJhdWQiOiJQdWJsaWMifQ._7K6nJfZkhWrzCj5sEw_hl8TmOLqPDo8VpPsDndAzCk\n",
 			"headerData": [
 				{
 					"key": "Authorization",
-					"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxOTgwMDUwNjQ3NzIiLCJqdGkiOiIxNzA2YWY5YS1lMDRiLTRjMGMtYWEwOC1mZmEwMWE5MWQzMDQiLCJpYXQiOiIwOC8xMy8yMDIwIDE3OjU3OjQ3IiwicGVyc29uYWxJZCI6IjE5ODAwNTA2NDc3MiIsIm5iZiI6MTU5NzM0MTQ2NywiZXhwIjoxNTk3MzQyMzY3LCJpc3MiOiJodHRwOi8vd3d3Lmdvb2dsZS5jb20iLCJhdWQiOiJQdWJsaWMifQ.NsGH4i6_-75zR12bDYytwlyen19gb_IksalqY3QUjP8",
+					"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxOTgwMDUwNjQ3NzIiLCJqdGkiOiJkN2VkNTMwNi1jOTA5LTRjYzItYWI5OS04YjJkZDI1MjQ3YTUiLCJpYXQiOiIwOC8xNS8yMDIwIDEzOjI3OjU1IiwicGVyc29uYWxJZCI6IjE5ODAwNTA2NDc3MiIsIm5iZiI6MTU5NzQ5ODA3NSwiZXhwIjoxNTk3NDk4OTc1LCJpc3MiOiJodHRwOi8vd3d3Lmdvb2dsZS5jb20iLCJhdWQiOiJQdWJsaWMifQ._7K6nJfZkhWrzCj5sEw_hl8TmOLqPDo8VpPsDndAzCk",
 					"description": "",
 					"enabled": true
 				}
 			],
-			"url": "http://localhost:8002/api/montyhall/SwitchDoorSelection/3",
+			"url": "http://localhost:8001/api/montyhall/SwitchDoorSelection/3",
 			"queryParams": [],
 			"preRequestScript": null,
 			"pathVariables": {},
@@ -92,7 +92,7 @@
 			"tests": null,
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1597355126044,
+			"time": 1597498179331,
 			"name": "SwitchDoorSelection",
 			"description": "",
 			"collectionId": "dc1c5f8b-f3c1-9984-69be-5a6c18110103",
@@ -129,46 +129,16 @@
 		},
 		{
 			"id": "5878ef7b-d54f-0c9d-d5fe-82468f94b524",
-			"headers": "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxOTgwMDUwNjQ3NzIiLCJqdGkiOiIxNzA2YWY5YS1lMDRiLTRjMGMtYWEwOC1mZmEwMWE5MWQzMDQiLCJpYXQiOiIwOC8xMy8yMDIwIDE3OjU3OjQ3IiwicGVyc29uYWxJZCI6IjE5ODAwNTA2NDc3MiIsIm5iZiI6MTU5NzM0MTQ2NywiZXhwIjoxNTk3MzQyMzY3LCJpc3MiOiJodHRwOi8vd3d3Lmdvb2dsZS5jb20iLCJhdWQiOiJQdWJsaWMifQ.NsGH4i6_-75zR12bDYytwlyen19gb_IksalqY3QUjP8\n",
+			"headers": "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxOTgwMDUwNjQ3NzIiLCJqdGkiOiJkN2VkNTMwNi1jOTA5LTRjYzItYWI5OS04YjJkZDI1MjQ3YTUiLCJpYXQiOiIwOC8xNS8yMDIwIDEzOjI3OjU1IiwicGVyc29uYWxJZCI6IjE5ODAwNTA2NDc3MiIsIm5iZiI6MTU5NzQ5ODA3NSwiZXhwIjoxNTk3NDk4OTc1LCJpc3MiOiJodHRwOi8vd3d3Lmdvb2dsZS5jb20iLCJhdWQiOiJQdWJsaWMifQ._7K6nJfZkhWrzCj5sEw_hl8TmOLqPDo8VpPsDndAzCk\n",
 			"headerData": [
 				{
 					"key": "Authorization",
-					"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxOTgwMDUwNjQ3NzIiLCJqdGkiOiIxNzA2YWY5YS1lMDRiLTRjMGMtYWEwOC1mZmEwMWE5MWQzMDQiLCJpYXQiOiIwOC8xMy8yMDIwIDE3OjU3OjQ3IiwicGVyc29uYWxJZCI6IjE5ODAwNTA2NDc3MiIsIm5iZiI6MTU5NzM0MTQ2NywiZXhwIjoxNTk3MzQyMzY3LCJpc3MiOiJodHRwOi8vd3d3Lmdvb2dsZS5jb20iLCJhdWQiOiJQdWJsaWMifQ.NsGH4i6_-75zR12bDYytwlyen19gb_IksalqY3QUjP8",
+					"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxOTgwMDUwNjQ3NzIiLCJqdGkiOiJkN2VkNTMwNi1jOTA5LTRjYzItYWI5OS04YjJkZDI1MjQ3YTUiLCJpYXQiOiIwOC8xNS8yMDIwIDEzOjI3OjU1IiwicGVyc29uYWxJZCI6IjE5ODAwNTA2NDc3MiIsIm5iZiI6MTU5NzQ5ODA3NSwiZXhwIjoxNTk3NDk4OTc1LCJpc3MiOiJodHRwOi8vd3d3Lmdvb2dsZS5jb20iLCJhdWQiOiJQdWJsaWMifQ._7K6nJfZkhWrzCj5sEw_hl8TmOLqPDo8VpPsDndAzCk",
 					"description": "",
 					"enabled": true
 				}
 			],
-			"url": "http://localhost:8002/api/montyhall/WinnerStatus",
-			"queryParams": [],
-			"pathVariables": {},
-			"pathVariableData": [],
-			"preRequestScript": null,
-			"method": "GET",
-			"collectionId": "dc1c5f8b-f3c1-9984-69be-5a6c18110103",
-			"data": null,
-			"dataMode": "params",
-			"name": "WinnerStatus",
-			"description": "",
-			"descriptionFormat": "html",
-			"time": 1597355137634,
-			"version": 2,
-			"responses": [],
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {}
-		},
-		{
-			"id": "7f57dedc-b4c9-6a99-319b-ae59fca9a6c6",
-			"headers": "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxOTgwMDUwNjQ3NzIiLCJqdGkiOiIxNzA2YWY5YS1lMDRiLTRjMGMtYWEwOC1mZmEwMWE5MWQzMDQiLCJpYXQiOiIwOC8xMy8yMDIwIDE3OjU3OjQ3IiwicGVyc29uYWxJZCI6IjE5ODAwNTA2NDc3MiIsIm5iZiI6MTU5NzM0MTQ2NywiZXhwIjoxNTk3MzQyMzY3LCJpc3MiOiJodHRwOi8vd3d3Lmdvb2dsZS5jb20iLCJhdWQiOiJQdWJsaWMifQ.NsGH4i6_-75zR12bDYytwlyen19gb_IksalqY3QUjP8\n",
-			"headerData": [
-				{
-					"key": "Authorization",
-					"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxOTgwMDUwNjQ3NzIiLCJqdGkiOiIxNzA2YWY5YS1lMDRiLTRjMGMtYWEwOC1mZmEwMWE5MWQzMDQiLCJpYXQiOiIwOC8xMy8yMDIwIDE3OjU3OjQ3IiwicGVyc29uYWxJZCI6IjE5ODAwNTA2NDc3MiIsIm5iZiI6MTU5NzM0MTQ2NywiZXhwIjoxNTk3MzQyMzY3LCJpc3MiOiJodHRwOi8vd3d3Lmdvb2dsZS5jb20iLCJhdWQiOiJQdWJsaWMifQ.NsGH4i6_-75zR12bDYytwlyen19gb_IksalqY3QUjP8",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "http://localhost:8002/api/montyhall/FirstDoorSelection/3",
+			"url": "http://localhost:8001/api/montyhall/WinnerStatus",
 			"queryParams": [],
 			"preRequestScript": null,
 			"pathVariables": {},
@@ -179,7 +149,35 @@
 			"tests": null,
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1597355091652,
+			"time": 1597498205865,
+			"name": "WinnerStatus",
+			"description": "",
+			"collectionId": "dc1c5f8b-f3c1-9984-69be-5a6c18110103",
+			"responses": []
+		},
+		{
+			"id": "7f57dedc-b4c9-6a99-319b-ae59fca9a6c6",
+			"headers": "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxOTgwMDUwNjQ3NzIiLCJqdGkiOiJkN2VkNTMwNi1jOTA5LTRjYzItYWI5OS04YjJkZDI1MjQ3YTUiLCJpYXQiOiIwOC8xNS8yMDIwIDEzOjI3OjU1IiwicGVyc29uYWxJZCI6IjE5ODAwNTA2NDc3MiIsIm5iZiI6MTU5NzQ5ODA3NSwiZXhwIjoxNTk3NDk4OTc1LCJpc3MiOiJodHRwOi8vd3d3Lmdvb2dsZS5jb20iLCJhdWQiOiJQdWJsaWMifQ._7K6nJfZkhWrzCj5sEw_hl8TmOLqPDo8VpPsDndAzCk\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxOTgwMDUwNjQ3NzIiLCJqdGkiOiJkN2VkNTMwNi1jOTA5LTRjYzItYWI5OS04YjJkZDI1MjQ3YTUiLCJpYXQiOiIwOC8xNS8yMDIwIDEzOjI3OjU1IiwicGVyc29uYWxJZCI6IjE5ODAwNTA2NDc3MiIsIm5iZiI6MTU5NzQ5ODA3NSwiZXhwIjoxNTk3NDk4OTc1LCJpc3MiOiJodHRwOi8vd3d3Lmdvb2dsZS5jb20iLCJhdWQiOiJQdWJsaWMifQ._7K6nJfZkhWrzCj5sEw_hl8TmOLqPDo8VpPsDndAzCk",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8001/api/montyhall/FirstDoorSelection/3",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1597498150039,
 			"name": "FirstDoorSelection",
 			"description": "",
 			"collectionId": "dc1c5f8b-f3c1-9984-69be-5a6c18110103",
@@ -189,7 +187,7 @@
 			"id": "a51d945b-4ee7-cea1-b733-eb227c08dfdf",
 			"headers": "",
 			"headerData": [],
-			"url": "http://localhost:8003/api/token?personalId=198005064772",
+			"url": "http://localhost:8001/api/token?personalId=198005064772",
 			"queryParams": [
 				{
 					"key": "personalId",
@@ -208,7 +206,7 @@
 			"tests": null,
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1597355060520,
+			"time": 1597498081084,
 			"name": "get token",
 			"description": "",
 			"collectionId": "dc1c5f8b-f3c1-9984-69be-5a6c18110103",
@@ -216,16 +214,16 @@
 		},
 		{
 			"id": "c9ea17c1-b827-f21f-7814-ef4362eb4aed",
-			"headers": "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxOTgwMDUwNjQ3NzIiLCJqdGkiOiIxNzA2YWY5YS1lMDRiLTRjMGMtYWEwOC1mZmEwMWE5MWQzMDQiLCJpYXQiOiIwOC8xMy8yMDIwIDE3OjU3OjQ3IiwicGVyc29uYWxJZCI6IjE5ODAwNTA2NDc3MiIsIm5iZiI6MTU5NzM0MTQ2NywiZXhwIjoxNTk3MzQyMzY3LCJpc3MiOiJodHRwOi8vd3d3Lmdvb2dsZS5jb20iLCJhdWQiOiJQdWJsaWMifQ.NsGH4i6_-75zR12bDYytwlyen19gb_IksalqY3QUjP8\n",
+			"headers": "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxOTgwMDUwNjQ3NzIiLCJqdGkiOiJkN2VkNTMwNi1jOTA5LTRjYzItYWI5OS04YjJkZDI1MjQ3YTUiLCJpYXQiOiIwOC8xNS8yMDIwIDEzOjI3OjU1IiwicGVyc29uYWxJZCI6IjE5ODAwNTA2NDc3MiIsIm5iZiI6MTU5NzQ5ODA3NSwiZXhwIjoxNTk3NDk4OTc1LCJpc3MiOiJodHRwOi8vd3d3Lmdvb2dsZS5jb20iLCJhdWQiOiJQdWJsaWMifQ._7K6nJfZkhWrzCj5sEw_hl8TmOLqPDo8VpPsDndAzCk\n",
 			"headerData": [
 				{
 					"key": "Authorization",
-					"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxOTgwMDUwNjQ3NzIiLCJqdGkiOiIxNzA2YWY5YS1lMDRiLTRjMGMtYWEwOC1mZmEwMWE5MWQzMDQiLCJpYXQiOiIwOC8xMy8yMDIwIDE3OjU3OjQ3IiwicGVyc29uYWxJZCI6IjE5ODAwNTA2NDc3MiIsIm5iZiI6MTU5NzM0MTQ2NywiZXhwIjoxNTk3MzQyMzY3LCJpc3MiOiJodHRwOi8vd3d3Lmdvb2dsZS5jb20iLCJhdWQiOiJQdWJsaWMifQ.NsGH4i6_-75zR12bDYytwlyen19gb_IksalqY3QUjP8",
+					"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxOTgwMDUwNjQ3NzIiLCJqdGkiOiJkN2VkNTMwNi1jOTA5LTRjYzItYWI5OS04YjJkZDI1MjQ3YTUiLCJpYXQiOiIwOC8xNS8yMDIwIDEzOjI3OjU1IiwicGVyc29uYWxJZCI6IjE5ODAwNTA2NDc3MiIsIm5iZiI6MTU5NzQ5ODA3NSwiZXhwIjoxNTk3NDk4OTc1LCJpc3MiOiJodHRwOi8vd3d3Lmdvb2dsZS5jb20iLCJhdWQiOiJQdWJsaWMifQ._7K6nJfZkhWrzCj5sEw_hl8TmOLqPDo8VpPsDndAzCk",
 					"description": "",
 					"enabled": true
 				}
 			],
-			"url": "http://localhost:8002/api/montyhall/HostDoorSelection",
+			"url": "http://localhost:8001/api/montyhall/HostDoorSelection",
 			"queryParams": [],
 			"preRequestScript": null,
 			"pathVariables": {},
@@ -236,7 +234,7 @@
 			"tests": null,
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1597355104538,
+			"time": 1597498160001,
 			"name": "HostDoorSelection",
 			"description": "",
 			"collectionId": "dc1c5f8b-f3c1-9984-69be-5a6c18110103",

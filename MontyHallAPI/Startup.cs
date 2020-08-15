@@ -44,16 +44,6 @@ namespace MontyHallAPI
                 RequireExpirationTime = true,
             };
 
-            /*services.AddAuthentication(o =>
-            {
-                o.DefaultAuthenticateScheme = "TestKey";
-            })
-            .AddJwtBearer("TestKey", x =>
-            {
-                x.A
-                x.RequireHttpsMetadata = false;
-                x.TokenValidationParameters = tokenValidationParameters;
-            });*/
 
             /*services.AddAuthentication(options =>
             {
@@ -86,6 +76,7 @@ namespace MontyHallAPI
                .AddJwtBearer(options =>
                {
                    options.IncludeErrorDetails = true;
+                   options.RequireHttpsMetadata = false;
                    options.TokenValidationParameters = tokenValidationParameters;
                });
 

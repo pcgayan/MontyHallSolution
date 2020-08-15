@@ -28,7 +28,7 @@ services:
        - ASPNETCORE_ENVIRONMENT=Development
 
   authserver:
-    image: ${DOCKER_REGISTRY-}montyhallapi
+    image: ${DOCKER_REGISTRY-}authserver
     hostname: authserver
     container_name: authserver
     build:
@@ -38,3 +38,16 @@ services:
         - "8003:80"
     environment:
        - ASPNETCORE_ENVIRONMENT=Development
+
+  clientwebapplication:
+    image: ${DOCKER_REGISTRY-}clientwebapplication
+    hostname: clientwebapplication
+    container_name: clientwebapplication
+    build:
+      context: .
+      dockerfile: ClientWebApplication/Dockerfile
+    ports:
+        - "8004:80"
+    environment:
+       - ASPNETCORE_ENVIRONMENT=Development
+
