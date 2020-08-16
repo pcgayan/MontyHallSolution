@@ -1,76 +1,119 @@
 ﻿import { Action, Reducer } from 'redux';
 import { AppThunkAction } from './';
 import { stat } from 'fs';
+import * as PlayerStore from '../store/Player';
 
-export interface PlayerState {
+export interface MontyHallSimulatorState {
     isLoading: boolean;
-    personalId: number;
-    accessToken: String;
-    expiry: number;
+    gameCount: number;
+    switchDoor: boolean;
+    games: GameState[];
+    error: string;
+    accessToekn: string
 }
 
-interface RequestPlayerAccessTokenAction {
-    type: 'REQUEST_PLAYER_ACCESS_TOKEN';
-    personalId: number;
+export interface GameState {
+    isLoading: boolean;
+    id: number;
+    stage: string;
+    state: boolean;
+    message: string;
 }
 
-
-interface ReceivePlayerAccessTokenAction {
-    type: 'RECEIVE_PLAYER_ACCESS_TOKEN';
-    personalId: number;
-    accessToken: String;
-    expiry: number;
+interface RequestMontyHallSimulatorAction {
+    type: 'REQUEST_MONTY_HALL_SIMULATOR_ACTION';
+    gameCount: number;
+    switchDoor: boolean;
+    accessToekn: string;
 }
 
-type KnownAction = RequestPlayerAccessTokenAction | ReceivePlayerAccessTokenAction;
+interface ReceivetMontyHallSimulatorAction {
+    type: 'RECEIVE_MONTY_HALL_SIMULATOR_ACTION';
+    gameCount: number;
+    switchDoor: boolean;
+    game: GameState;
+}
+
+interface ReceivetErrorAction {
+    type: 'RECEIVE_ERROR_ACTION';
+    error: string;
+}
+
+type KnownAction = RequestMontyHallSimulatorAction | ReceivetMontyHallSimulatorAction | ReceivetErrorAction;
 
 export const actionCreators = {
-    requestPlayerAccessToken: (personalId: number): AppThunkAction<KnownAction> => (dispatch, getState) => {
+    requestMontyHallSimulatorAction: (gameCount: number, switchDoor: boolean, accessToekn: string): AppThunkAction<KnownAction> => (dispatch, getState) => {
 
         const appState = getState();
-        try {
-            if (appState && appState.playerState && !appState.playerState.isLoading && appState.playerState.accessToken.length == 0) {
-                const url = '/api/token?personalId=' + personalId;
-                fetch(url)
-                    .then(response => response.json() as Promise<PlayerState>)
-                    .then(data => {
-                        dispatch({ type: 'RECEIVE_PLAYER_ACCESS_TOKEN', personalId: data.personalId, accessToken: data.accessToken, expiry: data.expiry });
-                    });
+        if (appState && appState.montyHallSimulatorState && !appState.montyHallSimulatorState.isLoading && appState.montyHallSimulatorState.error.length == 0 && appState.montyHallSimulatorState.games.length < gameCount) {
+            const url = 'api/montyhall/GameStart';
+            fetch(url,
+                {
+                    method: 'get',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + JSON.parse(accessToekn)
+                    }
+                })
+                .then(async response => {
+                    if (!response.ok) {
+                        //dispatch({ type: 'RECEIVE_ERROR_ACTION', error: error });
+                        return Promise.reject(response.status);
+                    } else {
+                        var data = await response.json();
+                        console.log(data);
+                        //const outGames = new [isLoading : false]
+                        dispatch({ type: 'RECEIVE_MONTY_HALL_SIMULATOR_ACTION', gameCount: gameCount, switchDoor: switchDoor, game: data });
+                    }
+                })
+                .catch(error => {
+                    dispatch({ type: 'RECEIVE_ERROR_ACTION', error: error });
+                });
 
-                dispatch({ type: 'REQUEST_PLAYER_ACCESS_TOKEN', personalId: personalId });
-            }
-        } catch ({ status, message }) {
-            console.log(message);
+            dispatch({ type: 'REQUEST_MONTY_HALL_SIMULATOR_ACTION', gameCount: gameCount, switchDoor: switchDoor, accessToekn: accessToekn });
         }
     }
 }
 
-const unloadedState: PlayerState = { isLoading: false, personalId: 0, accessToken: "", expiry: 0 };
+const unloadedState: MontyHallSimulatorState = { isLoading: false, gameCount: 0, switchDoor: false, games: [], error: '', accessToekn: '' };
 
-export const reducer: Reducer<PlayerState> = (state: PlayerState | undefined, incomingAction: Action): PlayerState => {
+export const reducer: Reducer<MontyHallSimulatorState> = (state: MontyHallSimulatorState | undefined, incomingAction: Action): MontyHallSimulatorState => {
      if (state === undefined) {
         return unloadedState;
     }
 
     const action = incomingAction as KnownAction;
-    console.log(action);
-
     switch (action.type) {
-        case 'REQUEST_PLAYER_ACCESS_TOKEN':
+        case 'REQUEST_MONTY_HALL_SIMULATOR_ACTION':
+            console.log(action);
              return {
                 isLoading: true,
-                personalId: state.personalId,
-                accessToken: state.accessToken,
-                expiry: state.expiry
+                gameCount: state.gameCount,
+                switchDoor: state.switchDoor,
+                games: state.games,
+                 error: '',
+                 accessToekn: state.accessToekn
             };
-        case 'RECEIVE_PLAYER_ACCESS_TOKEN':
+        case 'RECEIVE_MONTY_HALL_SIMULATOR_ACTION':
+            console.log(action);
             return {
                 isLoading: false,
-                personalId: action.personalId,
-                accessToken: action.accessToken,
-                expiry: action.expiry
+                gameCount: state.gameCount,
+                switchDoor: state.switchDoor,
+                games: Object.assign({}, action.game),
+                error: '',
+                accessToekn: state.accessToekn
             };
-            break;
+        case 'RECEIVE_ERROR_ACTION':
+            console.error(action.error);
+            return {
+                isLoading: false,
+                gameCount: 0,
+                switchDoor: false,
+                games: [],
+                error: action.error,
+                accessToekn: ''
+            };
     }
 
     return state;

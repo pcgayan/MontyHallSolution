@@ -7,13 +7,15 @@ namespace MontyHallAPI.Models
 {
     public class MontyHallGameSession
     {
+        public readonly int gameId;
         public readonly Player player;
         public readonly List<Door> doorList = new List<Door>();
         public readonly DateTime startTime;
         private DateTime? endTime { get;  set; }
 
-        public MontyHallGameSession(Player player)
+        public MontyHallGameSession(int gameId, Player player)
         {
+            this.gameId = gameId;
             this.player = player;
             
             int winningDoorId = generateWiningDoorId();

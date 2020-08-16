@@ -32,9 +32,6 @@ namespace MontyHallAPI.Controllers
 
         [HttpGet("GameStart")]
         [Authorize]
-        //[ProducesResponseType((int)System.Net.HttpStatusCode.BadRequest)]
-        //[ProducesResponseType((int)System.Net.HttpStatusCode.NotFound)]
-        //[ProducesResponseType(typeof(CatalogItem), (int)HttpStatusCode.OK)]
         public ActionResult<IEnumerable<string>> GameStart()
         {
             System.Text.StringBuilder result = new System.Text.StringBuilder();
@@ -62,15 +59,16 @@ namespace MontyHallAPI.Controllers
                 {
                     logger.LogDebug(String.Format("Player {0}, Player is on stage {1}", player.PersonalId, stage));
                 }
+
+                return Json(new Common.JsonResponse(montyHallGameSession.gameId, stage, "ongoing", "player.first.door.selection", result.ToString()));
+
             }
             else
             {
                 logger.LogDebug("Token did not contain personalId");
                 return Unauthorized();
             }
-
-            return new string[] { result.ToString() };
-        }
+       }
 
         [HttpGet("FirstDoorSelection/{firstDoorSelection}")]
         [Authorize]

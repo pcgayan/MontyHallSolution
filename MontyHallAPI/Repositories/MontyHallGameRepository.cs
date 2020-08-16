@@ -29,7 +29,7 @@ namespace MontyHallAPI.Repositories
                 }
             }
 
-           MontyHallGameSession initMontyHallGameSession = new MontyHallGameSession(player);
+           MontyHallGameSession initMontyHallGameSession = new MontyHallGameSession(montyHallGameSessions.Count , player);
            montyHallGameSessions.Add(initMontyHallGameSession);
 
             return initMontyHallGameSession;
@@ -45,7 +45,7 @@ namespace MontyHallAPI.Repositories
                 }
             }
 
-            MontyHallGameSession initMontyHallGameSession = new MontyHallGameSession(new Player(playerId));
+            MontyHallGameSession initMontyHallGameSession = new MontyHallGameSession(montyHallGameSessions.Count, new Player(playerId));
             montyHallGameSessions.Add(initMontyHallGameSession);
 
             return initMontyHallGameSession;
