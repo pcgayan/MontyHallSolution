@@ -18,6 +18,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthServer", "AuthServer\Au
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientWebApplication", "ClientWebApplication\ClientWebApplication.csproj", "{B5F53983-7CA2-4C21-9F7B-195071C0990A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{DEBCE716-81B3-46E1-A661-179B4225CEB0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,6 +46,10 @@ Global
 		{B5F53983-7CA2-4C21-9F7B-195071C0990A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B5F53983-7CA2-4C21-9F7B-195071C0990A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B5F53983-7CA2-4C21-9F7B-195071C0990A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DEBCE716-81B3-46E1-A661-179B4225CEB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEBCE716-81B3-46E1-A661-179B4225CEB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEBCE716-81B3-46E1-A661-179B4225CEB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEBCE716-81B3-46E1-A661-179B4225CEB0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

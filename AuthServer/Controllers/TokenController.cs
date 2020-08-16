@@ -11,6 +11,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Security.Claims;
 using Microsoft.Extensions.Options;
 using Microsoft.Extensions.Logging;
+using System.Security.AccessControl;
 
 namespace AuthServer.Controllers
 {
@@ -75,11 +76,13 @@ namespace AuthServer.Controllers
                 var encodedJwt = new JwtSecurityTokenHandler().WriteToken(jwt);
                 var responseJson = new
                 {
-                    access_token = encodedJwt,
-                    expires_in = (int)expiryTime.TotalSeconds
+                    personalId = personalId,
+                    accessToken = encodedJwt,
+                    expiry = (int)expiryTime.TotalSeconds
                 };
 
                 logger.LogDebug("Token generated for user " + personalId + encodedJwt);
+                //return Ok(new Common.JsonResponse(true, "token.generation.successfuly", responseJson));
                 return Json(responseJson);
             } catch (Exception e)
             {

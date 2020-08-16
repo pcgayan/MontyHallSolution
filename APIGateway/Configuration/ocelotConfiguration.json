@@ -39,13 +39,19 @@
         }
       ],
       "UpstreamPathTemplate": "/mocky/{path}",
-      "UpstreamHttpMethod": [
-        "Get",
-        "Post",
-        "Put",
-        "Delete",
-        "Options"
-      ]
+      "UpstreamHttpMethod": [ "POST", "PUT", "GET", "OPTIONS", "DELETE" ]
+    },
+    {
+      "DownstreamPathTemplate": "/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "clientwebapplication",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/{everything}",
+      "UpstreamHttpMethod": [ "POST", "PUT", "GET", "OPTIONS", "DELETE" ]
     }
 
   ],
