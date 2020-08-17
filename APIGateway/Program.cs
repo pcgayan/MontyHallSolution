@@ -18,36 +18,6 @@ namespace APIGateway
             CreateWebHostBuilder(args).Build().Run();
         }
 
-        /*public static IWebHostBuilder CreateWebHostBuilder(string[] args)
-        {
-            return WebHost.CreateDefaultBuilder(args)
-              .UseKestrel(options =>
-              {
-                  // Set properties and call methods on options
-              })
-
-              .UseStartup<Startup>()
-              .ConfigureAppConfiguration((hostingContext, config) =>
-              {
-                  config.AddJsonFile("ocelot.json").AddEnvironmentVariables();
-              })
-              .ConfigureServices(s =>
-              {
-                  s.AddOcelot();
-              })
-              .Configure(app =>
-              {
-                  app.UseStaticFiles();
-                  app.UseOcelot().Wait();
-              })
-              .ConfigureLogging((hostingContext, logging) =>
-              {
-                  logging.AddConsole();
-              })
-              .UseIISIntegration()
-              .Build();
-        }*/
-
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
              .ConfigureAppConfiguration((host, config) =>

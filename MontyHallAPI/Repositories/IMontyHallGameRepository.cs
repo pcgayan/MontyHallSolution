@@ -20,6 +20,9 @@ namespace MontyHallAPI.Repositories
         MontyHallGameSession getOngoingSession(Player player);
 
         int getHostDoorSelection(Player player);
+
         MontyHallGameSession getOngoingSession(string playerId);
+
+        public string getStageName(int stage);
     }
 }

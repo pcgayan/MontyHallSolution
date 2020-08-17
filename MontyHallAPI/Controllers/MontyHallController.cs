@@ -20,6 +20,8 @@ namespace MontyHallAPI.Controllers
     public class MontyHallController : Controller
     {
         private const string PERSONAL_ID = "personalId";
+        private const string ONGOING_STATUS = "ongoing";
+        private const string COMPLETE_STATUS = "complete";
         private readonly IMontyHallGameRepository montyHallGameRepository;
 
         private readonly ILogger<MontyHallController> logger;
@@ -51,17 +53,18 @@ namespace MontyHallAPI.Controllers
                 }
 
                 int stage = montyHallGameRepository.getOngoingSessionStage(player);
-                if (stage == 0 || stage == 1)
+                if (stage == 0)
                 {
                     result.Append(String.Format("Player {0}, Please select your winning door..", player.PersonalId));
+                    return Json(new Common.JsonResponse(montyHallGameSession.gameId, stage, COMPLETE_STATUS, montyHallGameRepository.getStageName(stage), result.ToString()));
+
                 }
                 else
                 {
                     logger.LogDebug(String.Format("Player {0}, Player is on stage {1}", player.PersonalId, stage));
+                    return Json(new Common.JsonResponse(montyHallGameSession.gameId, stage, ONGOING_STATUS, montyHallGameRepository.getStageName(stage), result.ToString()));
+
                 }
-
-                return Json(new Common.JsonResponse(montyHallGameSession.gameId, stage, "ongoing", "player.first.door.selection", result.ToString()));
-
             }
             else
             {
@@ -85,13 +88,14 @@ namespace MontyHallAPI.Controllers
                     return BadRequest();
                 }
 
-                Player player = montyHallGameRepository.getOngoingSession(claim.Value).player;
+                MontyHallGameSession montyHallGameSession = montyHallGameRepository.getOngoingSession(claim.Value);
+                Player player = montyHallGameSession.player;
                 int stage = montyHallGameRepository.getOngoingSessionStage(player);
                 if (stage == 1)
                 {
                     bool sucess = montyHallGameRepository.firstDorrSelection(player, firstDoorSelection);
                     result.Append(String.Format("Player {0}, Selection of door number {1} was {2}", player.PersonalId, firstDoorSelection, sucess == true ? "Sucessed" : "Failed"));
-                    return result.ToString();
+                    return Json(new Common.JsonResponse(montyHallGameSession.gameId, stage, COMPLETE_STATUS, montyHallGameRepository.getStageName(stage), result.ToString()));
                 }
                 else
                 {
@@ -116,13 +120,14 @@ namespace MontyHallAPI.Controllers
 
             if (claim != null)
             {
-                Player player = montyHallGameRepository.getOngoingSession(claim.Value).player;
+                MontyHallGameSession montyHallGameSession = montyHallGameRepository.getOngoingSession(claim.Value);
+                Player player = montyHallGameSession.player;
                 int stage = montyHallGameRepository.getOngoingSessionStage(player);
                 if (stage == 2)
                 {
                     int hostSelectionDoor = montyHallGameRepository.getHostDoorSelection(player);
                     result.Append(String.Format("Player {0}, Host door select was {1}.", player.PersonalId, hostSelectionDoor));
-                    return result.ToString();
+                    return Json(new Common.JsonResponse(montyHallGameSession.gameId, stage, COMPLETE_STATUS, montyHallGameRepository.getStageName(stage), result.ToString()));
                 }
                 else
                 {
@@ -153,13 +158,14 @@ namespace MontyHallAPI.Controllers
                     return BadRequest();
                 }
 
-                Player player = montyHallGameRepository.getOngoingSession(claim.Value).player;
+                MontyHallGameSession montyHallGameSession = montyHallGameRepository.getOngoingSession(claim.Value);
+                Player player = montyHallGameSession.player;
                 int stage = montyHallGameRepository.getOngoingSessionStage(player);
                 if (stage == 3)
                 {
                     bool sucess = montyHallGameRepository.switchDoorSelection(player, switchDoorSelection);
                     result.Append(String.Format("Player {0}, Switching of door number {1} was {2}", player.PersonalId, switchDoorSelection, sucess == true ? "Sucessed" : "Failed"));
-                    return result.ToString();
+                    return Json(new Common.JsonResponse(montyHallGameSession.gameId, stage, COMPLETE_STATUS, montyHallGameRepository.getStageName(stage), result.ToString()));
                 }
                 else
                 {
@@ -184,13 +190,14 @@ namespace MontyHallAPI.Controllers
 
             if (claim != null)
             {
-                Player player = montyHallGameRepository.getOngoingSession(claim.Value).player;
+                MontyHallGameSession montyHallGameSession = montyHallGameRepository.getOngoingSession(claim.Value);
+                Player player = montyHallGameSession.player;
                 int stage = montyHallGameRepository.getOngoingSessionStage(player);
                 if (stage == 4)
                 {
                     bool sucess = montyHallGameRepository.declareWinner(player);
                     result.Append(String.Format("Player {0}, you {1} !", player.PersonalId, sucess == true ? "Won" : "Lost"));
-                    return result.ToString();
+                    return Json(new Common.JsonResponse(montyHallGameSession.gameId, stage, COMPLETE_STATUS, montyHallGameRepository.getStageName(stage), result.ToString()));
                 }
                 else
                 {

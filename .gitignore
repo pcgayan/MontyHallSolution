@@ -21,3 +21,5 @@ obj
 /AuthServer/obj
 /MontyHallAPI/obj
 /MontyHallAPI/bin
+/Common/bin
+/Common/obj

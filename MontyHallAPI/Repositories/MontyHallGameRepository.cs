@@ -114,6 +114,16 @@ namespace MontyHallAPI.Repositories
             }
         }
 
+        public string getStageName(int stage)
+        {
+            if (stage == 1) return "player.first.door.selection";
+            if (stage == 2) return "host.door.selection";
+            if (stage == 3) return "switch.door.selection";
+            if (stage == 4) return "winner.selection";
+
+            return "player.starts.game";
+        }
+
         bool IMontyHallGameRepository.switchDoorSelection(Player player, int doorId)
         {
             player.switchSelectedDoor = getOngoingSession(player).getDoor(doorId - 1);
