@@ -12,7 +12,7 @@
 7. Backend serivce calls supported with api-gateway and JWT token security
 
 ## HOW TO Steps
-1. Make sure you have dcokerhub installed from https://hub.docker.com/ with a valid login.
+1. Make sure you have dockerhub installed from https://hub.docker.com/ with a valid login.
 2. Pull the root solution from https://github.com/pcgayan/MontyHallSolution
 3. From Visal studio 2019 Community edition open https://github.com/pcgayan/MontyHallSolution/blob/master/MontyHallSolution.sln
 4. Build the solution.
