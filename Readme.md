@@ -23,12 +23,20 @@
 
 ## Limitations
 1. Add number of simulations and switch door is not accepted as user params from Client web. Instead you can edit https://github.com/pcgayan/MontyHallSolution/blob/master/ClientWebApplication/ClientApp/src/components/FetchMontyHallSimulatorData.tsx 
-line 46 to add those.
+line 44, 45 to add those.
 2. After trigger hit of Simulations button you have to refesh the page simulate again. 
 
 ## Architecture
 ![alt text] (https://github.com/pcgayan/MontyHallSolution/blob/master/Architecture.jpg?raw=true)
+
+## Deployment
 ![alt text] (https://github.com/pcgayan/MontyHallSolution/blob/master/Deployment.jpg?raw=true)
+
+## Implemented Use Cases
+1. User Can start a new game and he ha/she have to complete the game before starting a new game with his/her id
+2. USer can not go back on steps of the game. Only can move forward on game.
+3. USer has limited time to complete game after that user is thrown out of the game.
+
 
 ## Used References
 https://dotnet.microsoft.com/learn/aspnet/microservice-tutorial/docker-file

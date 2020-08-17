@@ -28,22 +28,33 @@ class MontyHallSimulatorData extends React.PureComponent<MontyHallSimulatorStore
             <h1 id="tabelLabel">Monty Hall Game Simulator</h1>
             <p>This component Simulate Monty Hall Game </p>
             <button type="button" className="btn btn-primary btn-lg"
-                onClick={() => { this.ensureDataFetched(); }}> Simulate
+                onClick={() => { this.simulationDataFetch(); }}> Simulate
             </button>
             {this.renderPlayerAccessTable()}
             {this.props.isLoading && <p>Loading...</p>}
             {this.props.error.length != 0 && <p>Server responded with error : {this.props.error}</p>}
       </React.Fragment>
     );
-  }
+    }
 
-  private ensureDataFetched() {
-      const accessToekn = localStorage.getItem('accessToken');
-      const numberOfSimulations = parseInt(this.props.match.params.numberOfSimulations, 1000) || 2;
-      const switchDoor = this.props.match.params.switchDoor === 'true' ? true : false;
-      //console.log("retriving saved accessToekn : " + accessToekn
-      //console.log("numberOfSimulations : " + numberOfSimulations + " with switchDoor " + switchDoor);
-      this.props.requestMontyHallSimulatorAction(numberOfSimulations, switchDoor, accessToekn == null ? '' : accessToekn, 0);
+    private simulationDataFetch() {
+        const accessToekn = localStorage.getItem('accessToken');
+        //console.log("retriving saved accessToekn : " + accessToekn
+
+        const numberOfSimulations = 8;
+        const switchDoor = false;
+
+        console.log("NumberOfSimulations : " + numberOfSimulations + " with switchDoor " + switchDoor);
+        this.props.requestMontyHallSimulatorAction(numberOfSimulations, switchDoor, accessToekn == null ? '' : accessToekn);
+    }
+
+    private ensureDataFetched() {
+        //console.log("numberOfSimulations : " + numberOfSimulations + " with switchDoor " + switchDoor);
+        if (this.props.games.length == this.props.numberOfSimulations) {
+            return;
+        }
+
+        this.props.requestMontyHallSimulatorAction(this.props.numberOfSimulations, this.props.switchDoor, this.props.accessToekn == null ? '' : this.props.accessToekn);
   }
 
   private renderPlayerAccessTable() {

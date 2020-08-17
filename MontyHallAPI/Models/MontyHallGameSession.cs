@@ -53,7 +53,7 @@ namespace MontyHallAPI.Models
                 return false;
             }
 
-            if (endTime == null || endTime >= startTime)
+            if (endTime == null)
             {
                 return true;
             }
@@ -69,7 +69,7 @@ namespace MontyHallAPI.Models
                 return false;
             }
 
-            if (endTime == null || endTime >= startTime)
+            if (endTime == null)
             {
                 return true;
             }

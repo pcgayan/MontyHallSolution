@@ -164,7 +164,7 @@ namespace MontyHallAPI.Controllers
                 if (stage == 3)
                 {
                     bool sucess = montyHallGameRepository.switchDoorSelection(player, switchDoorSelection);
-                    result.Append(String.Format("Player {0}, Switching of door number {1} was {2}", player.PersonalId, switchDoorSelection, sucess == true ? "Sucessed" : "Failed"));
+                    result.Append(String.Format("Player {0}, Switching of door number {1} was {2}", player.PersonalId, switchDoorSelection, sucess == true ? "Successed" : "Failed"));
                     return Json(new Common.JsonResponse(montyHallGameSession.gameId, stage, COMPLETE_STATUS, montyHallGameRepository.getStageName(stage), result.ToString()));
                 }
                 else
@@ -196,8 +196,8 @@ namespace MontyHallAPI.Controllers
                 if (stage == 4)
                 {
                     bool sucess = montyHallGameRepository.declareWinner(player);
-                    result.Append(String.Format("Player {0}, you {1} !", player.PersonalId, sucess == true ? "Won" : "Lost"));
-                    return Json(new Common.JsonResponse(montyHallGameSession.gameId, stage, COMPLETE_STATUS, montyHallGameRepository.getStageName(stage), result.ToString()));
+                    //result.Append(String.Format("Player {0}, you {1} !", player.PersonalId, sucess == true ? "Won" : "Lost"));
+                    return Json(new Common.JsonResponse(montyHallGameSession.gameId, stage, COMPLETE_STATUS, montyHallGameRepository.getStageName(stage), sucess == true ? "Won" : "Lost"));
                 }
                 else
                 {

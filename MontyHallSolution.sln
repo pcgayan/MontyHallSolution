@@ -5,7 +5,10 @@ VisualStudioVersion = 16.0.30204.135
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CE660F4C-5031-40BC-B9FE-25F3F77F3716}"
 	ProjectSection(SolutionItems) = preProject
-		Readme.txt = Readme.txt
+		Architecture.jpg = Architecture.jpg
+		Deployment.jpg = Deployment.jpg
+		Readme.md = Readme.md
+		Simulator.jpg = Simulator.jpg
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MontyHallAPI", "MontyHallAPI\MontyHallAPI.csproj", "{445E6BB6-760D-4191-AF0C-B257CB54CCA4}"
@@ -16,9 +19,9 @@ Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-co
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthServer", "AuthServer\AuthServer.csproj", "{04E193D6-72E4-4FCE-9CC8-F6C479E2EA50}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientWebApplication", "ClientWebApplication\ClientWebApplication.csproj", "{B5F53983-7CA2-4C21-9F7B-195071C0990A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClientWebApplication", "ClientWebApplication\ClientWebApplication.csproj", "{B5F53983-7CA2-4C21-9F7B-195071C0990A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{DEBCE716-81B3-46E1-A661-179B4225CEB0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common", "Common\Common.csproj", "{DEBCE716-81B3-46E1-A661-179B4225CEB0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

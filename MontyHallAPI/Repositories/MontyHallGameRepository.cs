@@ -136,7 +136,7 @@ namespace MontyHallAPI.Repositories
             montyHallGameSession.endSession(player);
             bool winStatus = montyHallGameSession.isPlayerWon();
 
-            montyHallGameSessions.Remove(montyHallGameSession);
+            //montyHallGameSessions.Remove(montyHallGameSession);
 
             return winStatus;
         }

@@ -19,6 +19,7 @@ export interface GameState {
     stage: number;
     status: string;
     message: string;
+    data: string;
 }
 
 interface RequestMontyHallSimulatorAction {
@@ -32,6 +33,7 @@ interface RequestMontyHallSimulatorAction {
 interface ReceivetMontyHallSimulatorAction {
     type: 'RECEIVE_MONTY_HALL_SIMULATOR_ACTION';
     game: GameState;
+    numberOfSimulations: number;
     currentSimulationAtIndex: number;
 }
 
@@ -43,41 +45,46 @@ interface ReceivetErrorAction {
 type KnownAction = RequestMontyHallSimulatorAction | ReceivetMontyHallSimulatorAction | ReceivetErrorAction;
 
 export const actionCreators = {
-    requestMontyHallSimulatorAction: (numberOfSimulations: number, switchDoor: boolean, accessToekn: string, currentSimulationAtIndex: number): AppThunkAction<KnownAction> => (dispatch, getState) => {
+    requestMontyHallSimulatorAction: (numberOfSimulations: number, switchDoor: boolean, accessToekn: string): AppThunkAction<KnownAction> => (dispatch, getState) => {
 
         const appState = getState();
         if (appState && appState.montyHallSimulatorState && !appState.montyHallSimulatorState.isLoading &&
             appState.montyHallSimulatorState.error.length == 0 && appState.montyHallSimulatorState.games.length <= numberOfSimulations) {
 
+            var currentSimulationAtIndex = appState.montyHallSimulatorState.currentSimulationAtIndex;  //appState.montyHallSimulatorState.games.length-1;
             const runnigGame = appState.montyHallSimulatorState.games[currentSimulationAtIndex];
             //console.log("runnigGame with index " + currentSimulationAtIndex + " currrent running game " + appState.montyHallSimulatorState.games.length);
             if (runnigGame === undefined) {
-                pullGameStatus(accessToekn, dispatch, currentSimulationAtIndex, 'api/montyhall/GameStart');
+                pullGameStatus(accessToekn, dispatch, numberOfSimulations, currentSimulationAtIndex, 'api/montyhall/GameStart');
             } else if (runnigGame.stage === 1) {
                 if (runnigGame.status === 'ongoing') {
-                    pullGameStatus(accessToekn, dispatch, currentSimulationAtIndex, 'api/montyhall/FirstDoorSelection/3');
+                    pullGameStatus(accessToekn, dispatch, numberOfSimulations, currentSimulationAtIndex, 'api/montyhall/FirstDoorSelection/3');
                 } else {
-                    pullGameStatus(accessToekn, dispatch, currentSimulationAtIndex, 'api/montyhall/GameStart');
+                    pullGameStatus(accessToekn, dispatch, numberOfSimulations, currentSimulationAtIndex, 'api/montyhall/GameStart');
                 }
             } else if (runnigGame.stage === 2) {
                 if (runnigGame.status == 'ongoing') {
-                    pullGameStatus(accessToekn, dispatch, currentSimulationAtIndex, 'api/montyhall/HostDoorSelection');
+                    pullGameStatus(accessToekn, dispatch, numberOfSimulations, currentSimulationAtIndex, 'api/montyhall/HostDoorSelection');
                 } else {
-                    pullGameStatus(accessToekn, dispatch, currentSimulationAtIndex, 'api/montyhall/GameStart');
+                    pullGameStatus(accessToekn, dispatch, numberOfSimulations, currentSimulationAtIndex, 'api/montyhall/GameStart');
                 }
             } else if (runnigGame.stage === 3) {
                 if (runnigGame.status == 'ongoing') {
-                    pullGameStatus(accessToekn, dispatch, currentSimulationAtIndex, 'api/montyhall/SwitchDoorSelection/3');
+                    pullGameStatus(accessToekn, dispatch, numberOfSimulations, currentSimulationAtIndex, 'api/montyhall/SwitchDoorSelection/' + ((switchDoor == true) ? '1' : '3'));
                 } else {
-                    pullGameStatus(accessToekn, dispatch, currentSimulationAtIndex, 'api/montyhall/GameStart');
+                    pullGameStatus(accessToekn, dispatch, numberOfSimulations, currentSimulationAtIndex, 'api/montyhall/GameStart');
                 }
             } else if (runnigGame.stage === 4) {
                 if (runnigGame.status === 'ongoing') {
-                    pullGameStatus(accessToekn, dispatch, currentSimulationAtIndex, 'api/montyhall/WinnerStatus');
+                    pullGameStatus(accessToekn, dispatch, numberOfSimulations, currentSimulationAtIndex, 'api/montyhall/WinnerStatus');
                 } else {
-                    dispatch({ type: 'RECEIVE_MONTY_HALL_SIMULATOR_ACTION', currentSimulationAtIndex: currentSimulationAtIndex, game: runnigGame });
+                    //console.log("Game Over for " + currentSimulationAtIndex + " user " + runnigGame.status);
+
                     currentSimulationAtIndex++;
-                    console.log("Game Over, Starting next game for game " + currentSimulationAtIndex);
+                    if (currentSimulationAtIndex == numberOfSimulations -1) {
+                        return;
+                    }
+                    pullGameStatus(accessToekn, dispatch, numberOfSimulations, currentSimulationAtIndex, 'api/montyhall/GameStart');
                 }
             } 
 
@@ -94,10 +101,10 @@ export const reducer: Reducer<MontyHallSimulatorState> = (state: MontyHallSimula
     }
 
     const action = incomingAction as KnownAction;
+    //console.log(action.type);
     switch (action.type) {
         case 'REQUEST_MONTY_HALL_SIMULATOR_ACTION':
-             //console.log(action);
-             console.log("state index " + state.currentSimulationAtIndex + " action for index " + action.currentSimulationAtIndex);
+             //console.log("state index " + state.currentSimulationAtIndex + " action for index " + action.currentSimulationAtIndex);
              return {
                  isLoading: true,
                  numberOfSimulations: action.numberOfSimulations,
@@ -108,7 +115,7 @@ export const reducer: Reducer<MontyHallSimulatorState> = (state: MontyHallSimula
                  currentSimulationAtIndex: action.currentSimulationAtIndex
             };
         case 'RECEIVE_MONTY_HALL_SIMULATOR_ACTION':
-            console.log(action);
+            //console.log(action);
             //const mergedGames = state.games.concat(action.game);
             //console.log(action.game.stage + " + " + action.game.message);
             const runningGame = state.games[action.currentSimulationAtIndex];
@@ -121,15 +128,19 @@ export const reducer: Reducer<MontyHallSimulatorState> = (state: MontyHallSimula
                     if (state.games[i].id === action.game.id) {
                         //console.log(state.games[i].message);
                         //console.log(action.game.message);
+                        if (action.game.stage == 4 && action.game.status === "complete") {
+                            action.game.status = action.game.data;
+                        }
+                         
                         state.games[i] = action.game;
                         break;
                     }
                 }
             }
 
-            for (var i = 0; i < state.games.length; i++) {
+            /*for (var i = 0; i < state.games.length; i++) {
                 console.log(state.games[i].id + "," + state.games[i].stage + "," + state.games[i].message + "," + state.games[i].status);
-            }
+            }*/
 
             return {
                 isLoading: false,
@@ -138,7 +149,7 @@ export const reducer: Reducer<MontyHallSimulatorState> = (state: MontyHallSimula
                 games: state.games,
                 error: '',
                 accessToekn: state.accessToekn,
-                currentSimulationAtIndex: action.currentSimulationAtIndex
+                currentSimulationAtIndex: state.currentSimulationAtIndex
             };
         case 'RECEIVE_ERROR_ACTION':
             console.error(action.error);
@@ -156,7 +167,7 @@ export const reducer: Reducer<MontyHallSimulatorState> = (state: MontyHallSimula
     return state;
 };
 
-export function pullGameStatus(accessToekn: string, dispatch: (action: KnownAction) => void, currentSimulationAtIndex: number, url : string) {
+export function pullGameStatus(accessToekn: string, dispatch: (action: KnownAction) => void, numberOfSimulations: number, currentSimulationAtIndex: number, url: string) {
     fetch(url, {
         method: 'get',
         headers: {
@@ -171,7 +182,7 @@ export function pullGameStatus(accessToekn: string, dispatch: (action: KnownActi
         else {
             var data = await stageOneResponse.json();
             //console.log(data);
-            dispatch({ type: 'RECEIVE_MONTY_HALL_SIMULATOR_ACTION', currentSimulationAtIndex: currentSimulationAtIndex, game: data });
+            dispatch({ type: 'RECEIVE_MONTY_HALL_SIMULATOR_ACTION', numberOfSimulations: numberOfSimulations, currentSimulationAtIndex: currentSimulationAtIndex, game: data });
         }
     })
     .catch(error => {
