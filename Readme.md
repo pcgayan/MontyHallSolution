@@ -3,7 +3,7 @@
 ![alt text] (https://github.com/pcgayan/MontyHallSolution/blob/master/Simulator.jpg?raw=true)
 
 ## Mandatory notes
-1. System is completly devleoped on Visal studio 2019 Community edition.
+1. System is completly devleoped on Visual studio 2019 Community edition.
 2. All backend and client compnents are hosted as dokers on local docker instance.
 3. Seperate auth server with JWT token support is added for authentication and session managment.
 4. Seperate api-gateway add to encapulate docker instances of auth server, client web server, backend server. All traffic is initated via this.
